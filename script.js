@@ -61,7 +61,6 @@ function Calculator(Arg){
                 Value1 = 0;
             }
 
-            console.log(Value1)
             Value1 = parseFloat(Value1)
             Output.innerHTML = Value1;
     }
@@ -120,6 +119,9 @@ function Calculator(Arg){
             if (Value3 == ""){
                 Value3 = 0;
             }
+
+            Value3 = parseFloat(Value3)
+            Output.innerHTML = Value3;
     }
 
     function Calculate(){
