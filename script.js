@@ -134,6 +134,9 @@ function Calculator(Arg){
         } else if (Value2 == "Add"){
             Value4 = parseFloat(Value1)+parseFloat(Value3)
         }
+
+        Value1 = Value4
+        Value3 = 0
         Output.innerHTML = Value4 
     }
 
@@ -159,33 +162,13 @@ function Calculator(Arg){
             CalcV1("Negative")
         }
     } else if (Arg == "+"){
-        if (Value2IsDone == 1){
-            Calculate();
-            CalcV2("Plus")
-        } else {
-            CalcV2("Plus");
-        }
+        CalcV2("Plus");
     } else if (Arg == "/"){
-        if (Value2IsDone == 1){
-            Calculate();
-            CalcV2("Divide")
-        } else {
-            CalcV2("Divide");
-        }
+        CalcV2("Divide");
     } else if (Arg == "*"){
-        if (Value2IsDone == 1){
-            Calculate();
-            CalcV2("Times")
-        } else {
-            CalcV2("Times");
-        }
+        CalcV2("Times");
     } else if (Arg == "-"){
-        if (Value2IsDone == 1){
-            Calculate();
-            CalcV2("Subtract")
-        } else {
-            CalcV2("Subtract");
-        }
+        CalcV2("Subtract");
     } else if (Arg == "1"){
         if (Value1IsDone == 1){
             CalcV3("1")
