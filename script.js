@@ -49,8 +49,6 @@ function Calculator(Arg){
                 Value1 = Value1+"."
             } else if (Arg2 == "Negative"){
                 Value1 = Value1*-1
-            } else if (Arg2 == "Square"){
-                Value1 = Value1*Value1
             } else if (Arg2 == "BackSpace" && Number.isNaN(Value1) == false){
                 Value1 = Value1.toString()
                 var Temp = Value1.length
@@ -63,7 +61,10 @@ function Calculator(Arg){
                 Value1 = 0;
             }
 
-            Value1 = parseFloat(Value1)
+            if (Arg2 != "Dot"){
+                Value1 = parseFloat(Value1)
+            }
+
             Output.innerHTML = Value1;
     }
 
@@ -78,6 +79,8 @@ function Calculator(Arg){
             Value2 = "Times"
         } else if (Arg2 == "Divide"){
             Value2 = "Divide"
+        } else if (Arg2 == "Square"){
+            Value2 = "Square"
         }
     }
 
@@ -124,11 +127,17 @@ function Calculator(Arg){
                 IsZero = 1;
             }
 
-            Value3 = parseFloat(Value3)
+            if (Arg2 != "Dot"){
+                Value3 = parseFloat(Value3)
+            }
+
             Output.innerHTML = Value3;
     }
 
     function Calculate(){
+        Value1 = parseFloat(Value1)
+        Value3 = parseFloat(Value3)
+
         if (Value2 == "Times"){
             Value4 = parseFloat(Value1)*parseFloat(Value3)
         } else if (Value2 == "Divide" && Value3 != 0){
@@ -139,6 +148,8 @@ function Calculator(Arg){
             Value4 = parseFloat(Value1)-parseFloat(Value3)
         } else if (Value2 == "Add"){
             Value4 = parseFloat(Value1)+parseFloat(Value3)
+        } else if (Value2 == "Square"){
+            Value4 = Value1*Value1
         }
 
         Value5 = Value3
@@ -167,11 +178,8 @@ function Calculator(Arg){
             CalcV1("Dot")
         }
     } else if (Arg == "Square"){
-        if (Value1IsDone == 1){
-            CalcV3("Square")
-        } else {
-            CalcV1("Square")
-        }
+        CalcV2("Square")
+        Calculate()
     } else if (Arg == "Negative"){
         if (Value1IsDone == 1){
             CalcV3("Negative")
