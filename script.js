@@ -81,6 +81,8 @@ function Calculator(Arg){
             Value2 = "Divide"
         } else if (Arg2 == "Square"){
             Value2 = "Square"
+        } else if (Arg2 == "Reciprocal"){
+            Value2 = "Reciprocal"
         }
     }
 
@@ -150,6 +152,8 @@ function Calculator(Arg){
             Value4 = parseFloat(Value1)+parseFloat(Value3)
         } else if (Value2 == "Square"){
             Value4 = Value1*Value1
+        } else if (Value2 == "Reciprocal" && Value3 != 0 || Value1 != 0){
+            Value4 = 1/Value1
         }
 
         Value5 = Value3
@@ -179,6 +183,9 @@ function Calculator(Arg){
         }
     } else if (Arg == "Square"){
         CalcV2("Square")
+        Calculate()
+    } else if (Arg == "Reciprocal"){
+        CalcV2(Reciprocal)
         Calculate()
     } else if (Arg == "Negative"){
         if (Value1IsDone == 1){
